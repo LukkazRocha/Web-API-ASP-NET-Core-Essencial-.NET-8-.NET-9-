@@ -317,5 +317,4 @@ OpenCover/
 WideMap/.vscode/launch.json
 WideMap/.vscode/tasks.json
 /.vscode
-/Datlo.WebAPI/appsettings.json
-Datlo.WebAPI/appsettings.Development.json
+/APICatalogo/APICatalogo/appsettings.json
