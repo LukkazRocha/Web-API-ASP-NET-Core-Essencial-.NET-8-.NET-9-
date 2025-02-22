@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APICatalogo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250201183403_MigracaoInicial")]
-    partial class MigracaoInicial
+    [Migration("20250222181558_MigrationInicial")]
+    partial class MigrationInicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace APICatalogo.Migrations
 
             modelBuilder.Entity("APICatalogo.Models.Categoria", b =>
                 {
-                    b.Property<int>("CatagoriaId")
+                    b.Property<int>("CategoriaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -38,9 +38,9 @@ namespace APICatalogo.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("varchar(80)");
 
-                    b.HasKey("CatagoriaId");
+                    b.HasKey("CategoriaId");
 
-                    b.ToTable("Categoria");
+                    b.ToTable("Categorias");
                 });
 
             modelBuilder.Entity("APICatalogo.Models.Produto", b =>
@@ -86,7 +86,7 @@ namespace APICatalogo.Migrations
             modelBuilder.Entity("APICatalogo.Models.Produto", b =>
                 {
                     b.HasOne("APICatalogo.Models.Categoria", "Categoria")
-                        .WithMany("Productos")
+                        .WithMany("Produtos")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -96,7 +96,7 @@ namespace APICatalogo.Migrations
 
             modelBuilder.Entity("APICatalogo.Models.Categoria", b =>
                 {
-                    b.Navigation("Productos");
+                    b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618
         }

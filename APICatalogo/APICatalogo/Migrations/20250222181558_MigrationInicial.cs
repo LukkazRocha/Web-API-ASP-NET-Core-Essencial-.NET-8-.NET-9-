@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace APICatalogo.Migrations
 {
     /// <inheritdoc />
-    public partial class MigracaoInicial : Migration
+    public partial class MigrationInicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,10 +16,10 @@ namespace APICatalogo.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Categoria",
+                name: "Categorias",
                 columns: table => new
                 {
-                    CatagoriaId = table.Column<int>(type: "int", nullable: false)
+                    CategoriaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(type: "varchar(80)", maxLength: 80, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -28,7 +28,7 @@ namespace APICatalogo.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categoria", x => x.CatagoriaId);
+                    table.PrimaryKey("PK_Categorias", x => x.CategoriaId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -53,10 +53,10 @@ namespace APICatalogo.Migrations
                 {
                     table.PrimaryKey("PK_Produtos", x => x.ProdutoId);
                     table.ForeignKey(
-                        name: "FK_Produtos_Categoria_CategoriaId",
+                        name: "FK_Produtos_Categorias_CategoriaId",
                         column: x => x.CategoriaId,
-                        principalTable: "Categoria",
-                        principalColumn: "CatagoriaId",
+                        principalTable: "Categorias",
+                        principalColumn: "CategoriaId",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -74,7 +74,7 @@ namespace APICatalogo.Migrations
                 name: "Produtos");
 
             migrationBuilder.DropTable(
-                name: "Categoria");
+                name: "Categorias");
         }
     }
 }
